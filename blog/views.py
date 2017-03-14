@@ -11,3 +11,6 @@ def index(request):
 	return render(request,'blog/index.html',{'articles' : articles})
 
 
+def article(request,article_id):
+	article = models.Article.objects.get(pk=article_id)
+	return render(request,'blog/article_page.html',{'article' : article})

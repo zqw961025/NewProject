@@ -32,6 +32,6 @@ urlpatterns = [
     url(r'^hellos$', bv.hellos),
     url(r'^index$', bv.index),
     url(r'^testdb$', testdb.testdb),
-    url(r'^search-post$', search2.search_post),
+    url(r'^article/(?P<article_id>[0-9]+)$', bv.article),
 
 ]
