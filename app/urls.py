@@ -19,19 +19,16 @@
 # urlpatterns = [
 #     url(r'^admin/', admin.site.urls),
 # ]
-from django.conf.urls import url
+from django.conf.urls import url,include
 from . import view,testdb,search,search2
 from . import view
 import blog.views as bv
 from django.contrib import admin
- 
+import blog.urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', view.hello),
     url(r'^hello$', view.hello),
-    url(r'^hellos$', bv.hellos),
-    url(r'^index$', bv.index),
     url(r'^testdb$', testdb.testdb),
-    url(r'^article/(?P<article_id>[0-9]+)$', bv.article),
+    url(r'^blog/', include('blog.urls',namespace='blog'))
 
 ]
